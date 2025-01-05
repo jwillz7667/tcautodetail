@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+
+const featuredArticles = [
+  {
+    title: "The Evolution of Modern Basketball",
+    excerpt: "How the game has transformed from its early days to the current fast-paced, three-point shooting era.",
+    image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=1200&h=675&fit=crop",
+    category: "Basketball",
+    readTime: "5 min"
+  },
+  {
+    title: "Rising Stars in European Soccer",
+    excerpt: "Meet the next generation of football talent taking the European leagues by storm.",
+    image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=1200&h=675&fit=crop",
+    category: "Soccer",
+    readTime: "4 min"
+  },
+  {
+    title: "The Mental Game in Tennis",
+    excerpt: "Understanding the psychological aspects that make champions in professional tennis.",
+    image: "https://images.unsplash.com/photo-1531315630201-bb15abeb1653?w=1200&h=675&fit=crop",
+    category: "Tennis",
+    readTime: "6 min"
+  }
+];
+---
+
+<div class="relative w-full h-[600px] overflow-hidden">
+  <div class="swiper h-full">
+    <div class="swiper-wrapper">
+      {featuredArticles.map((article) => (
+        <div class="swiper-slide relative">
+          <img
+            src={article.image}
+            alt={article.title}
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+            <div class="absolute bottom-0 left-0 p-8 text-white">
+              <span class="inline-block px-3 py-1 bg-primary rounded-full text-sm mb-4">
+                {article.category}
+              </span>
+              <h2 class="text-4xl font-bold mb-4">{article.title}</h2>
+              <p class="text-lg mb-4 max-w-2xl">{article.excerpt}</p>
+              <span class="text-sm opacity-75">{article.readTime} read</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  new Swiper('.swiper', {
+    modules: [Navigation, Pagination, Autoplay],
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>

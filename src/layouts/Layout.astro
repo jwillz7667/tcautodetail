@@ -1,0 +1,56 @@
+---
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="FanFuelHQ - Your Ultimate Sports Community" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - FanFuelHQ</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --swiper-theme-color: #fff;
+    --swiper-navigation-size: 24px;
+  }
+  
+  html {
+    font-family: 'Inter Variable', system-ui, sans-serif;
+    background: #1F2937;
+    scroll-behavior: smooth;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50%;
+  }
+
+  .swiper-pagination-bullet {
+    background: white !important;
+    opacity: 0.5 !important;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: #FF0000 !important;
+  }
+</style>

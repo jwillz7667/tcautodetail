@@ -1,0 +1,117 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+import SocialLinks from './SocialLinks.astro';
+
+const currentYear = new Date().getFullYear();
+
+const footerLinks = {
+  Products: [
+    { name: 'Features', href: '/features' },
+    { name: 'Premium', href: '/premium' },
+    { name: 'Pricing', href: '/pricing' },
+  ],
+  Company: [
+    { name: 'About', href: '/about' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Press', href: '/press' },
+  ],
+  Resources: [
+    { name: 'Blog', href: '/blog' },
+    { name: 'Documentation', href: '/docs' },
+    { name: 'Help Center', href: '/help' },
+  ],
+  Support: [
+    { name: 'Contact', href: '/contact' },
+    { name: 'FAQ', href: '/faq' },
+    { name: 'Community', href: '/community' },
+  ],
+};
+---
+
+<footer class="bg-white/5 border-t border-white/10" aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  
+  <div class="container mx-auto px-6 py-12">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <!-- Brand -->
+      <div class="space-y-8">
+        <a href="/" class="flex items-center space-x-2">
+          <span class="text-2xl font-bold text-white">SportsPulse</span>
+        </a>
+        <p class="text-sm text-gray-300 max-w-md">
+          Your premier destination for sports news, analysis, and commentary. Stay ahead of the game with our expert coverage.
+        </p>
+        <SocialLinks />
+      </div>
+
+      <!-- Navigation -->
+      <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          {Object.entries(footerLinks).slice(0, 2).map(([category, links]) => (
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold text-white">{category}</h3>
+              <ul role="list" class="mt-4 space-y-4">
+                {links.map(link => (
+                  <li>
+                    <a href={link.href} class="text-sm text-gray-300 hover:text-white transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          {Object.entries(footerLinks).slice(2).map(([category, links]) => (
+            <div class="mt-10 md:mt-0">
+              <h3 class="text-sm font-semibold text-white">{category}</h3>
+              <ul role="list" class="mt-4 space-y-4">
+                {links.map(link => (
+                  <li>
+                    <a href={link.href} class="text-sm text-gray-300 hover:text-white transition-colors">
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="mt-12 border-t border-white/10 pt-8">
+      <div class="max-w-md">
+        <h3 class="text-sm font-semibold text-white">Subscribe to our newsletter</h3>
+        <p class="mt-2 text-sm text-gray-300">
+          Get the latest sports news and updates delivered to your inbox.
+        </p>
+        <div class="mt-4">
+          <NewsletterForm />
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-12 border-t border-white/10 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-xs text-gray-300">
+          &copy; {currentYear} SportsPulse. All rights reserved.
+        </p>
+        <div class="flex space-x-6">
+          <a href="/privacy" class="text-xs text-gray-300 hover:text-white transition-colors">
+            Privacy Policy
+          </a>
+          <a href="/terms" class="text-xs text-gray-300 hover:text-white transition-colors">
+            Terms of Service
+          </a>
+          <a href="/cookies" class="text-xs text-gray-300 hover:text-white transition-colors">
+            Cookie Policy
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

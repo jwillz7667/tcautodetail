@@ -1,0 +1,68 @@
+---
+import type { BlogPost } from '../../data/blogPosts';
+
+interface Props {
+  currentPost: BlogPost;
+  previousPost?: BlogPost;
+  nextPost?: BlogPost;
+}
+
+const { currentPost, previousPost, nextPost } = Astro.props;
+---
+
+<nav class="flex justify-between items-center mt-12 pt-8 border-t border-white/10">
+  {previousPost ? (
+    <a
+      href={`/blog/${previousPost.slug}`}
+      class="flex items-center text-gray-300 hover:text-white transition-colors"
+    >
+      <svg
+        class="w-5 h-5 mr-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
+      </svg>
+      <span class="text-sm">Previous Article</span>
+    </a>
+  ) : (
+    <div></div>
+  )}
+
+  <a
+    href="/blog"
+    class="text-sm text-gray-300 hover:text-white transition-colors"
+  >
+    View All Articles
+  </a>
+
+  {nextPost ? (
+    <a
+      href={`/blog/${nextPost.slug}`}
+      class="flex items-center text-gray-300 hover:text-white transition-colors"
+    >
+      <span class="text-sm">Next Article</span>
+      <svg
+        class="w-5 h-5 ml-2"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </a>
+  ) : (
+    <div></div>
+  )}
+</nav>

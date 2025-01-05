@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/header/Header.astro';
+import Footer from '../components/footer/Footer.astro';
+
+const lastUpdated = "April 15, 2024";
+---
+
+<Layout title="Privacy Policy - SportsPulse">
+  <Header />
+  <main class="min-h-screen bg-gradient-to-br from-primary to-secondary pt-24">
+    <div class="container mx-auto px-6 py-12">
+      <div class="max-w-3xl mx-auto bg-white/10 backdrop-blur-lg rounded-xl p-8">
+        <h1 class="text-3xl font-bold text-white mb-6">Privacy Policy</h1>
+        <p class="text-gray-300 mb-8">Last updated: {lastUpdated}</p>
+
+        <div class="space-y-8 text-gray-300">
+          <section>
+            <h2 class="text-xl font-semibold text-white mb-4">1. Introduction</h2>
+            <p>
+              SportsPulse ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold text-white mb-4">2. Information We Collect</h2>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>Personal information (name, email address)</li>
+              <li>Usage data (browser type, IP address)</li>
+              <li>Cookie data</li>
+              <li>Newsletter preferences</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold text-white mb-4">3. How We Use Your Information</h2>
+            <ul class="list-disc pl-6 space-y-2">
+              <li>To provide and maintain our service</li>
+              <li>To notify you about changes to our service</li>
+              <li>To provide customer support</li>
+              <li>To gather analysis or valuable information</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold text-white mb-4">4. GDPR Compliance</h2>
+            <p>
+              If you are a resident of the European Economic Area (EEA), you have certain data protection rights. We aim to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.
+            </p>
+          </section>
+
+          <section>
+            <h2 class="text-xl font-semibold text-white mb-4">5. Contact Us</h2>
+            <p>
+              If you have any questions about this Privacy Policy, please contact us at:
+            </p>
+            <ul class="mt-2 space-y-1">
+              <li>Email: privacy@sportspulse.com</li>
+              <li>Phone: +1 (555) 123-4567</li>
+              <li>Address: 123 Sports Avenue, New York, NY 10001</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="mt-8">
+          <a
+            href="/"
+            class="inline-flex items-center text-white hover:text-gray-300 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

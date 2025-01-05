@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/header/Header.astro';
+import Footer from '../components/footer/Footer.astro';
+
+const features = [
+  {
+    title: "Live Scores",
+    description: "Real-time updates from games across all major sports leagues.",
+    icon: "🏆"
+  },
+  {
+    title: "Expert Analysis",
+    description: "In-depth coverage from experienced sports journalists and analysts.",
+    icon: "📊"
+  },
+  {
+    title: "Personalized Feed",
+    description: "Custom news feed based on your favorite teams and sports.",
+    icon: "📱"
+  },
+  {
+    title: "Community Discussion",
+    description: "Engage with other fans in moderated discussion forums.",
+    icon: "💬"
+  }
+];
+---
+
+<Layout title="Features">
+  <Header />
+  <main class="min-h-screen bg-gradient-to-br from-gray-850 to-secondary pt-24">
+    <div class="container mx-auto px-6 py-12">
+      <h1 class="text-4xl font-bold text-white mb-8">Features</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {features.map(feature => (
+          <div class="p-6 bg-white/10 backdrop-blur-lg rounded-xl border border-white/20">
+            <div class="text-4xl mb-4">{feature.icon}</div>
+            <h3 class="text-xl font-bold text-white mb-2">{feature.title}</h3>
+            <p class="text-gray-300">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>
