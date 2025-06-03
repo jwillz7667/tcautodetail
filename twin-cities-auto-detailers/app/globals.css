@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Light mode default background (white) */
+    --foreground: 224 71.4% 4.1%; /* Dark mode default text */
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 210 100% 50%; /* Accent Blue */
+    --primary-foreground: 0 0% 100%; /* White text on blue */
+
+    --secondary: 45 100% 50%; /* Accent Yellow/Gold */
+    --secondary-foreground: 224 71.4% 4.1%; /* Dark text on yellow */
+
+    --muted: 0 0% 100%; /* White for muted backgrounds */
+    --muted-foreground: 220 8.9% 46.1%; /* Gray text for muted */
+
+    --accent: 220 14.3% 95.8%;
+    --accent-foreground: 224 71.4% 4.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 100% 50%; /* Blue for rings */
+
+    --radius: 0.75rem;
+
+    /* Custom brand colors */
+    --brand-charcoal: 224 23% 15%; /* #1A202C */
+    --brand-light-gray: 210 20% 98%; /* #F7FAFC */
+    --brand-blue: 210 100% 50%; /* #007BFF */
+    --brand-yellow: 45 100% 50%; /* #FFD700 */
+
+    --font-sans: "Inter", sans-serif;
+    --font-heading: "Montserrat", sans-serif; /* Example: Using Montserrat for headings */
+  }
+
+  .dark {
+    --background: 224 23% 15%; /* Charcoal for dark mode background */
+    --foreground: 0 0% 98%; /* Light text for dark mode */
+
+    --card: 224 23% 20%; /* Slightly lighter charcoal for cards in dark mode */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 224 23% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 210 100% 60%; /* Brighter blue for dark mode */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 100% 55%; /* Brighter yellow for dark mode */
+    --secondary-foreground: 224 71.4% 4.1%;
+
+    --muted: 223 22% 25%; /* Darker muted background */
+    --muted-foreground: 223 20% 65%; /* Lighter muted text */
+
+    --accent: 223 22% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --border: 223 22% 30%;
+    --input: 223 22% 30%;
+    --ring: 210 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+/* Glassmorphism utility */
+.glassmorphic {
+  background: rgba(255, 255, 255, 0.1); /* Adjust alpha for intensity */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glassmorphic {
+  background: rgba(30, 30, 40, 0.25); /* Darker glassmorphism */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle Neumorphic button example */
+.btn-neumorphic-light {
+  @apply shadow-neumorphic-light active:shadow-neumorphic-light-inset;
+}
+.dark .btn-neumorphic-dark {
+  @apply shadow-neumorphic-dark active:shadow-neumorphic-dark-inset;
+}
+
+/* For Swiper.js if used later */
+.swiper-button-next,
+.swiper-button-prev {
+  color: hsl(var(--primary)) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: hsl(var(--primary)) !important;
+}
