@@ -35,8 +35,8 @@ export const servicesData: ServiceDetails[] = [
     slug: "interior-detailing",
     title: "Interior Detailing",
     tagline: "Revitalize Your Vehicle\'s Inner Sanctum",
-    icon: () => React.createElement(Car, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(Car, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(Car, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(Car, { className: "w-12 h-12 text-primary" }),
     heroImage: "/luxury-car-interior.png",
     description: [
       "Experience a new level of clean with our comprehensive interior detailing services. We meticulously treat every surface, from carpets and upholstery to dashboards and door panels, ensuring your vehicle's interior is not just clean, but hygienically refreshed and visually stunning.",
@@ -106,12 +106,12 @@ export const servicesData: ServiceDetails[] = [
     faqs: [
       {
         question: "How long does interior detailing take?",
-        answer: "Typically 2-5 hours, depending on the vehicle's condition and selected package.",
+        answer: "Typically 2-5 hours, depending on the vehicle\'s condition and selected package.",
       },
       {
         question: "Do you remove all types of stains?",
         answer:
-          "We strive to remove all stains, but some deeply set or aged stains may not be fully removable. We'll assess and inform you.",
+          "We strive to remove all stains, but some deeply set or aged stains may not be fully removable. We\'ll assess and inform you.",
       },
       {
         question: "Are your cleaning products safe for children and pets?",
@@ -119,16 +119,16 @@ export const servicesData: ServiceDetails[] = [
       },
     ],
     relatedServices: [
-      { slug: "exterior-detailing", title: "Exterior Detailing", icon: () => React.createElement(SprayCan) },
-      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: () => React.createElement(Wand2) },
+      { slug: "exterior-detailing", title: "Exterior Detailing", icon: React.createElement(SprayCan) },
+      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: React.createElement(Wand2) },
     ],
   },
   {
     slug: "exterior-detailing",
     title: "Exterior Detailing",
     tagline: "Restore Your Car\'s Showroom Shine & Protection",
-    icon: () => React.createElement(SprayCan, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(SprayCan, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(SprayCan, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(SprayCan, { className: "w-12 h-12 text-primary" }),
     heroImage: "/shiny-car-exterior.png",
     description: [
       "Our exterior detailing services are designed to bring back your vehicle's original luster and protect it from the elements. We go beyond a simple wash, employing meticulous techniques to decontaminate, polish, and protect your car's paintwork and exterior surfaces.",
@@ -210,23 +210,23 @@ export const servicesData: ServiceDetails[] = [
           "We recommend a full exterior detail every 3-6 months, with regular washes in between, depending on driving conditions and storage.",
       },
       {
-        question: "What's the difference between wax and sealant?",
+        question: "What\'s the difference between wax and sealant?",
         answer:
           "Wax typically provides a warm gloss and lasts a few weeks to months. Sealants are synthetic, offer longer-lasting protection (months to a year), and often a sharper shine.",
       },
     ],
     relatedServices: [
-      { slug: "interior-detailing", title: "Interior Detailing", icon: () => React.createElement(Car) },
-      { slug: "paint-correction", title: "Paint Correction", icon: () => React.createElement(ShieldAlert) },
-      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: () => React.createElement(Wand2) },
+      { slug: "interior-detailing", title: "Interior Detailing", icon: React.createElement(Car) },
+      { slug: "paint-correction", title: "Paint Correction", icon: React.createElement(ShieldAlert) },
+      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: React.createElement(Wand2) },
     ],
   },
   {
     slug: "paint-correction",
     title: "Paint Correction",
     tagline: "Erase Imperfections, Restore Flawless Shine",
-    icon: () => React.createElement(ShieldAlert, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(ShieldAlert, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(ShieldAlert, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(ShieldAlert, { className: "w-12 h-12 text-primary" }),
     heroImage: "/sports-car-paint-correction.png",
     description: [
       "Paint correction is the meticulous process of restoring and rejuvenating your vehicle's paintwork by removing imperfections such as swirl marks, fine scratches, oxidation, water spots, and etchings. This is achieved through careful machine polishing with various grades of compounds and polishes.",
@@ -318,17 +318,17 @@ export const servicesData: ServiceDetails[] = [
       },
     ],
     relatedServices: [
-      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: () => React.createElement(Wand2) },
-      { slug: "paint-protection-film", title: "Paint Protection Film", icon: () => React.createElement(WindIcon) },
-      { slug: "exterior-detailing", title: "Exterior Detailing", icon: () => React.createElement(SprayCan) },
+      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: React.createElement(Wand2) },
+      { slug: "paint-protection-film", title: "Paint Protection Film", icon: React.createElement(WindIcon) },
+      { slug: "exterior-detailing", title: "Exterior Detailing", icon: React.createElement(SprayCan) },
     ],
   },
   {
     slug: "ceramic-coatings",
     title: "Ceramic Coatings",
     tagline: "The Ultimate in Long-Term Paint Protection & Gloss",
-    icon: () => React.createElement(Wand2, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(Wand2, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(Wand2, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(Wand2, { className: "w-12 h-12 text-primary" }),
     heroImage: "/placeholder.svg?width=1200&height=400",
     description: [
       "Elevate your vehicle's protection and appearance with our professional-grade ceramic coating services. A ceramic coating is a liquid polymer that chemically bonds with your vehicle's factory paint, creating a durable, hydrophobic, and incredibly glossy layer of protection.",
@@ -423,17 +423,17 @@ export const servicesData: ServiceDetails[] = [
       },
     ],
     relatedServices: [
-      { slug: "paint-correction", title: "Paint Correction", icon: () => React.createElement(ShieldAlert) },
-      { slug: "exterior-detailing", title: "Exterior Detailing", icon: () => React.createElement(SprayCan) },
-      { slug: "paint-protection-film", title: "Paint Protection Film", icon: () => React.createElement(WindIcon) },
+      { slug: "paint-correction", title: "Paint Correction", icon: React.createElement(ShieldAlert) },
+      { slug: "exterior-detailing", title: "Exterior Detailing", icon: React.createElement(SprayCan) },
+      { slug: "paint-protection-film", title: "Paint Protection Film", icon: React.createElement(WindIcon) },
     ],
   },
   {
     slug: "paint-protection-film",
     title: "Paint Protection Film (PPF)",
     tagline: "Invisible Armor for Your Vehicle\'s Paint",
-    icon: () => React.createElement(WindIcon, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(WindIcon, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(WindIcon, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(WindIcon, { className: "w-12 h-12 text-primary" }),
     heroImage: "/placeholder.svg?width=1200&height=400",
     description: [
       "Paint Protection Film (PPF), also known as clear bra, is a virtually invisible urethane film applied to your vehicle's painted surfaces to protect them from stone chips, bug splatters, minor abrasions, and environmental contaminants.",
@@ -499,17 +499,17 @@ export const servicesData: ServiceDetails[] = [
       },
     ],
     relatedServices: [
-      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: () => React.createElement(Wand2) },
-      { slug: "paint-correction", title: "Paint Correction", icon: () => React.createElement(ShieldAlert) },
-      { slug: "exterior-detailing", title: "Exterior Detailing", icon: () => React.createElement(SprayCan) },
+      { slug: "ceramic-coatings", title: "Ceramic Coatings", icon: React.createElement(Wand2) },
+      { slug: "paint-correction", title: "Paint Correction", icon: React.createElement(ShieldAlert) },
+      { slug: "exterior-detailing", title: "Exterior Detailing", icon: React.createElement(SprayCan) },
     ],
   },
   {
     slug: "specialty-services",
     title: "Specialty Detailing Services",
     tagline: "Custom Solutions for Unique Needs",
-    icon: () => React.createElement(Sparkle, { className: "w-8 h-8 text-primary" }),
-    heroIcon: () => React.createElement(Sparkle, { className: "w-12 h-12 text-primary" }),
+    icon: React.createElement(Sparkle, { className: "w-8 h-8 text-primary" }),
+    heroIcon: React.createElement(Sparkle, { className: "w-12 h-12 text-primary" }),
     heroImage: "/placeholder.svg?width=1200&height=400",
     description: [
       "Beyond our core offerings, we provide a range of specialty detailing services to address specific concerns and enhance particular areas of your vehicle. Whether it's restoring cloudy headlights, deep cleaning an engine bay, or applying protective coatings to unique surfaces, we have the expertise.",
@@ -558,8 +558,8 @@ export const servicesData: ServiceDetails[] = [
       },
     ],
     relatedServices: [
-      { slug: "interior-detailing", title: "Interior Detailing", icon: () => React.createElement(Car) },
-      { slug: "exterior-detailing", title: "Exterior Detailing", icon: () => React.createElement(SprayCan) },
+      { slug: "interior-detailing", title: "Interior Detailing", icon: React.createElement(Car) },
+      { slug: "exterior-detailing", title: "Exterior Detailing", icon: React.createElement(SprayCan) },
     ],
   },
 ]

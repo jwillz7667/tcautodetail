@@ -4,33 +4,26 @@ import * as z from "zod"
 // import { Resend } from "resend" // Removed Resend import
 import BookingInquiryEmail from "@/emails/booking-inquiry-admin"
 import BookingInquiryUserEmail from "@/emails/booking-inquiry-user"
-import type { BookingInquiryData } from "../types/booking"
-import { supabase } from "@/lib/supabase/client"; // Added Supabase client import
+// import type { BookingInquiryData } from "../types/booking"
+import { supabase } from "@/lib/supabaseClient"; // Corrected Supabase client import
+import { inquirySchema, type BookingInquiryFormData } from "@/lib/schemas/bookingSchema"; // Import centralized schema
 
 // const resend = new Resend(process.env.RESEND_API_KEY) // Removed Resend initialization
 const adminEmail = process.env.ADMIN_EMAIL || "admin@example.com" // Keep for now, might be useful for Supabase
 const fromEmail = process.env.FROM_EMAIL || "system@example.com" // Changed default and kept for now
+const edgeFunctionUrl = "send-booking-email"; // Define the Edge Function URL/name
 
-const inquirySchema = z.object({
-  name: z.string().min(2, "Name is required (min 2 characters)"),
-  email: z.string().email("Invalid email address"),
-  phone: z.string().min(10, "Valid phone number is required (min 10 digits)").regex(/^\\+?[0-9\\s-()]+$/, "Invalid phone number format"),
-  vehicleMake: z.string().min(2, "Vehicle make is required"),
-  vehicleModel: z.string().min(1, "Vehicle model is required"),
-  vehicleYear: z.string().min(4, "Valid 4-digit vehicle year is required").max(4, "Year must be 4 digits").regex(/^\\d{4}$/, "Invalid year format"),
-  preferredService: z.string().min(1, "Please select a preferred service"),
-  preferredDate: z.preprocess((arg) => {
-    if (typeof arg === "string" || arg instanceof Date) return new Date(arg)
-    return undefined
-  }, z.date().optional().nullable()),
-  preferredTime: z.string().optional(),
-  message: z.string().optional(),
-})
+// const inquirySchema = z.object({ ... // <- REMOVE THIS OLD SCHEMA DEFINITION
+// ... (entire old schema definition removed) ...
+// preferredTime: z.string().optional(),
+// message: z.string().optional(),
+// })
 
-export async function createBookingAction(data: BookingInquiryData): Promise<{
+export async function createBookingAction(data: BookingInquiryFormData): Promise<{
   success: boolean
   errors?: z.ZodIssue[] | { form?: string[]; email?: string }
 }> {
+  // console.log("Raw data received by createBookingAction:", data); // Removed for debugging
   const validationResult = inquirySchema.safeParse(data)
 
   if (!validationResult.success) {
@@ -110,7 +103,7 @@ export async function createBookingAction(data: BookingInquiryData): Promise<{
       // For now, let's throw to indicate a critical failure if admin email fails.
       // throw new Error(`Failed to send admin notification: ${adminEmailError.message}`);
       // Or, more gracefully:
-      return { success: false, errors: { email: ["Failed to send admin notification. Please try again."] } };
+      return { success: false, errors: { email: "Failed to send admin notification. Please try again." } }; // Corrected error type
     }
     console.log("Admin email successfully invoked:", adminEmailResponse);
 

@@ -12,42 +12,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Calendar } from '@/components/ui/calendar'
 import { cn } from '@/lib/utils'
-import { CalendarIcon, UserCircle, Car, MessageSquare, Clock } from 'lucide-react'
+import { CalendarIcon, UserCircle, Car, MessageSquare, Clock, Sparkle } from 'lucide-react'
 import { format } from 'date-fns'
 import type { ServiceDetails } from '@/lib/services-data'
-import type { BookingInquiryData } from '@/lib/types/booking'
-
-const inquirySchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Invalid email address.' }),
-  phone: z
-    .string()
-    .min(10, { message: 'Phone number must be at least 10 digits.' })
-    .regex(/^\+?[0-9\s-()]+$/, { message: 'Invalid phone number format.' }),
-  vehicleMake: z.string().min(2, { message: 'Vehicle make is required.' }),
-  vehicleModel: z.string().min(1, { message: 'Vehicle model is required.' }),
-  vehicleYear: z
-    .string()
-    .min(4, { message: 'Enter a 4-digit year.' })
-    .max(4, { message: 'Enter a 4-digit year.' })
-    .regex(/^\d{4}$/, { message: 'Invalid year format.' })
-    .refine(
-      (year) => {
-        const numYear = Number.parseInt(year)
-        return numYear >= 1900 && numYear <= new Date().getFullYear() + 1
-      },
-      { message: 'Please enter a valid year.' },
-    ),
-  preferredService: z.string().min(1, { message: 'Please select a service.' }),
-  preferredDate: z.date().optional(),
-  preferredTime: z.string().optional(),
-  message: z.string().optional(),
-})
-
-type InquiryFormData = z.infer<typeof inquirySchema>
+import { inquirySchema, type BookingInquiryFormData } from '@/lib/schemas/bookingSchema'
 
 interface BookingInquiryFormProps {
-  onSubmit: (data: InquiryFormData) => Promise<void>
+  onSubmit: (data: BookingInquiryFormData) => Promise<void>
   initialServiceSlug?: string | null
   isSubmitting: boolean
   services: ServiceDetails[]
@@ -59,7 +30,7 @@ export default function BookingInquiryForm({
   isSubmitting,
   services,
 }: BookingInquiryFormProps) {
-  const form = useForm<InquiryFormData>({
+  const form = useForm<BookingInquiryFormData>({
     resolver: zodResolver(inquirySchema),
     defaultValues: {
       name: '',
@@ -75,7 +46,7 @@ export default function BookingInquiryForm({
     },
   })
 
-  const handleSubmit = (data: InquiryFormData) => {
+  const handleSubmit = (data: BookingInquiryFormData) => {
     onSubmit(data)
   }
 
